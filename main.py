@@ -54,7 +54,7 @@ class TypingSpeedTestApp:
         if self.test_started:
             elapsed_time = time.time() - self.start_time
             self.timer_label.config(text="Time: {:.1f} s".format(elapsed_time))
-            self.root.after(500, self.update_timer)
+            self.root.after(100, self.update_timer)
 
     def check_input(self, event):
         if self.entry.get() == self.test_text:
@@ -64,6 +64,8 @@ class TypingSpeedTestApp:
                     elapsed_time, len(self.test_text) / elapsed_time))
             self.entry.unbind("<KeyRelease>")
             self.test_text = choice(self.text_list)
+            self.test_sentence_label.configure(text=self.test_text)
+            self.entry.delete(0, END)
             self.test_started = False
             self.start_button.config(state=NORMAL)
 
