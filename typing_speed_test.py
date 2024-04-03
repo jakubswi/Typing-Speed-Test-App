@@ -1,6 +1,6 @@
-from tkinter import *
 import time
 from random import choice
+from tkinter import *
 
 
 class TypingSpeedTestApp:
